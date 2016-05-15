@@ -118,6 +118,11 @@ class LogInMainWindow(QWidget):
     
             
             db.clear()
+            
+            
+            
+            
+#as
  
 
             
