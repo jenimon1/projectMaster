@@ -1,5 +1,5 @@
 
-
+from LoginPage import *
 class Project:
 
     def __init__(self,projTitle,code,re,ss,cs,type,sc,height,client):
@@ -12,6 +12,13 @@ class Project:
         self.__siteConfiguration = sc
         self.__height = height
         self.__client = client
+
+
+
+    def newlyTrial(self):
+        print("try1")
+        print("try1")
+        print("try1")
 
 
 
@@ -58,7 +65,7 @@ class Project:
 
     def setClient(self,c):
         self.__client = c
-    
+
     def getClient(self):
         return self.__height
 
