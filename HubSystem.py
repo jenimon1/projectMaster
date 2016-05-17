@@ -2,5 +2,7 @@
 
 class HubSystem:
 
-    def __init__(self):
-        self.as = "sss"
+    def __init__(self,user):
+        self.userUsing = user
+        self.systemUserList = []
+        self.systemProjectList = []

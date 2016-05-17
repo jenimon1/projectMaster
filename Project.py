@@ -2,7 +2,7 @@
 from LoginPage import *
 class Project:
 
-    def __init__(self,projTitle,code,re,ss,cs,type,sc,height,client):
+    def __init__(self,projTitle,code,re,ss,cs,type,sc,height,client,projH):
         self.__projTitle = projTitle
         self.__siteCode = code
         self.__region = re
@@ -12,7 +12,19 @@ class Project:
         self.__siteConfiguration = sc
         self.__height = height
         self.__client = client
+        self.__projectHead = projH
+        self.__memberList = []
 
+
+    def getProjectHead(self):
+        return self.__p
+
+
+    def addMember(self,user):
+        self.__memberList.append(user)
+
+    def remove(self,user):
+        self.__memberList.remove(user)
 
 
     def newlyTrial(self):
