@@ -2,10 +2,13 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.Qt import *
 
+from projectMaster.myProjectMemberPage import *
+
 class ViewProjectPageMainWindow(QWidget):
 
-    def __init__(self):
+    def __init__(self,mainWindow):
         super().__init__()
+        self.mainWindow = mainWindow
 
         self.initUI()
 
@@ -66,12 +69,19 @@ class ViewProjectPageMainWindow(QWidget):
 
 
     def goButClicked(self):
-        print("go button has been clicked!!!")
-        for i in self.myProjList.selectedItems():
-            print("hey")
+        # print("go button has been clicked!!!")
+        # for i in self.myProjList.selectedItems():
+        #     print("hey")
+        #
+        # for i in self.otherProjList.selectedItems():
+        #     print("hey21")
 
-        for i in self.otherProjList.selectedItems():
-            print("hey21")
+        ###if user is head of Project
+        # self.mainWindow.setStyleSheet("LogInMainWindow {Background-image: url(projectMaster/Images/CreateProjBack.jpg)}")
+        centralWidget = myProjectMemberPageMainWindow(self.mainWindow)
+        self.mainWindow.setCentralWidget(centralWidget)
+        self.mainWindow.setStyleSheet("LogInMainWindow {Background-Image: url(Images/UpdateProjMemBack.jpg)}")
+
 
 
 
