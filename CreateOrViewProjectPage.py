@@ -58,6 +58,13 @@ class CreateOrViewProjectMainWindow(QWidget):
     def viewProjButClicked(self):
         print("View project button has been clicked")
 
+        viewProjWidget = ViewProjectPageMainWindow(self.mainWindow)
+        self.mainWindow.setStyleSheet(
+            "LogInMainWindow {Background-image: url(projectMaster/Images/ViewProjBack.jpg)}")
+        # self.mainWindow.toolBar.hide()
+
+        self.mainWindow.setCentralWidget(viewProjWidget)
+
 
 
 
