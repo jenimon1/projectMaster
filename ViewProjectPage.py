@@ -3,7 +3,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.Qt import *
 
 from projectMaster.myProjectMemberPage import *
-from projectMaster.myProjectHeaderPage import *
+# from projectMaster.myProjectHeaderPage import *
+import projectMaster.myProjectHeaderPage
 from projectMaster.otherProjectPage import *
 
 class ViewProjectPageMainWindow(QWidget):
@@ -81,7 +82,7 @@ class ViewProjectPageMainWindow(QWidget):
         ###if user is head of Project
         # self.mainWindow.setStyleSheet("LogInMainWindow {Background-image: url(projectMaster/Images/CreateProjBack.jpg)}")
         # centralWidget = MyProjectMemberPageMainWindow(self.mainWindow)
-        centralWidget = MyProjectHeaderPageMainWindow(self.mainWindow)
+        centralWidget = projectMaster.myProjectHeaderPage.MyProjectHeaderPageMainWindow(self.mainWindow)
         # centralWidget = OtherProjectPageMainWindow(self.mainWindow)
         self.mainWindow.setCentralWidget(centralWidget)
         self.mainWindow.setStyleSheet("LogInMainWindow {Background-Image: url(Images/UpdateProjMemBack.jpg)}")

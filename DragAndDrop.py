@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.Qt import *
-
+from PyQt5.QtCore import *
 
 class DraggableLabel(QLabel):
 
@@ -44,7 +44,7 @@ class DraggableLabel(QLabel):
             self.show()
 
 class MyFrame(QFrame):
-
+    dropped = pyqtSignal()
     def __init__(self, parent, stat):
         super(MyFrame, self).__init__(parent)
         self.status = stat
@@ -122,6 +122,7 @@ class MyFrame(QFrame):
         if event.mimeData().hasFormat(self.myMimeType):
             if (self.isPhaseInPhaseList(event.mimeData().text()) == False):
                 self.phaseList.append(DraggableLabel(event.mimeData().text()))
+                self.drop.emit()
             mime = event.mimeData()
             itemData = mime.data(self.myMimeType)
             dataStream = QDataStream(itemData, QIODevice.ReadOnly)
@@ -170,3 +171,6 @@ class MyFrame(QFrame):
         print(len(self.phaseList))
         for i in self.phaseList:
             print(i.text())
+
+
+
