@@ -35,7 +35,7 @@ class OtherProjectPageMainWindow(QWidget):
         self.doneFrame.setGeometry(700, 180, 300, 400)
         self.cancelBut.setGeometry(900,620,80,50)
         self.projDetailBut.setGeometry(50,620,80,50)
-        self.progressBar.setGeometry(50,650,900,100)
+        self.progressBar.setGeometry(80,655,840,100)
 
 
         ##Populate all Frames and update Progress bar accordingly

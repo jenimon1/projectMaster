@@ -122,7 +122,7 @@ class MyFrame(QFrame):
         if event.mimeData().hasFormat(self.myMimeType):
             if (self.isPhaseInPhaseList(event.mimeData().text()) == False):
                 self.phaseList.append(DraggableLabel(event.mimeData().text()))
-                self.drop.emit()
+                self.dropped.emit()
             mime = event.mimeData()
             itemData = mime.data(self.myMimeType)
             dataStream = QDataStream(itemData, QIODevice.ReadOnly)
