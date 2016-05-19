@@ -14,7 +14,9 @@ class CreateProjectPage(QWidget):
     def __init__(self,mainwindow):
         super().__init__()
         self.mainWindow = mainwindow
-
+        ''''''
+        self.parentWidget = ""
+        ''''''
         self.initUI()
 
 
@@ -24,6 +26,7 @@ class CreateProjectPage(QWidget):
 
         scrollWidget = QWidget()
         scrollWidgetLayout = QVBoxLayout()
+        scrollWidget.setGeometry(0,0,300, 300)
 
 
         ##Frame 1 setup, project name label and lineEdit
@@ -313,7 +316,7 @@ class CreateProjectPage(QWidget):
 
 
 
-        scrollArea.setStyleSheet("QScrollArea {Background-color: rgba(0,0,0,0%)}")
+        scrollArea.setStyleSheet("QScrollArea {Background-color: rgba(0,0,0,0%); opacity: 0.4;}")
 
         self.layout.addWidget(scrollArea)
 
@@ -422,10 +425,24 @@ class CreateProjectPage(QWidget):
 
     def cancelButClicked(self):
         print('cancel button has been clicked')
-        createOrViewProjWindow = CreateOrViewProjectPage.CreateOrViewProjectMainWindow(self.mainWindow)
-        self.mainWindow.setCentralWidget(createOrViewProjWindow)
-        self.mainWindow.setStyleSheet(
-            "LogInMainWindow {background-image: url(/Users/Chieh/Desktop/EngineerHub/Images/MenuBack.jpg)}")
+        if (self.getParentWidget == "CreateOrViewProjectPage"):
+            createOrViewProjWindow = CreateOrViewProjectPage.CreateOrViewProjectMainWindow(self.mainWindow)
+            self.mainWindow.setCentralWidget(createOrViewProjWindow)
+            self.mainWindow.setStyleSheet(
+                "LogInMainWindow {background-image: url(/Users/Chieh/Desktop/EngineerHub/Images/MenuBack.jpg)}")
+
+        elif (self.getParentWidget == "MyProjectHeaderPage"):
+            print("blahblah")
+
+
+    ''''''
+    def setParentWidget(self,string):
+        self.parentWidget = string
+
+
+    def getParentWidget(self):
+        return self.parentWidget
+    ''''''
 
 
 
