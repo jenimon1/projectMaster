@@ -3,7 +3,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.Qt import *
 
 
-
 class DraggableLabel(QLabel):
 
     def __init__(self,parent = None):
@@ -119,14 +118,10 @@ class MyFrame(QFrame):
             event.ignore()
 
     def dropEvent(self, event):
-        print(self.status + ", Before Data Enter: ")
-        self.printAllElements()
+
         if event.mimeData().hasFormat(self.myMimeType):
             if (self.isPhaseInPhaseList(event.mimeData().text()) == False):
                 self.phaseList.append(DraggableLabel(event.mimeData().text()))
-            print("After Data Enter: ")
-            self.printAllElements()
-            print("-------")
             mime = event.mimeData()
             itemData = mime.data(self.myMimeType)
             dataStream = QDataStream(itemData, QIODevice.ReadOnly)
@@ -151,13 +146,8 @@ class MyFrame(QFrame):
 
 
     def dragMoveEvent(self,event):
-        print("Before Data Leave: ")
-        self.printAllElements()
         if event.mimeData().hasFormat(self.myMimeType):
-            print("After Data Leave: ")
             self.removePhase(event.mimeData().text())
-            self.printAllElements()
-            print("------")
             event.accept()
         else:
             event.ignore()
